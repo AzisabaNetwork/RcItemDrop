@@ -15,6 +15,9 @@ repositories {
     maven("https://oss.sonatype.org/content/groups/public/") {
         name = "sonatype"
     }
+    maven("https://repo.aikar.co/content/groups/aikar/") {
+        name = "aikar-repo"
+    }
     maven("https://repo.azisaba.net/repository/maven-releases/") {
         name = "azisaba-repo"
     }
