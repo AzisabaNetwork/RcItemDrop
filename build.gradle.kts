@@ -4,8 +4,8 @@ plugins {
     alias(libs.plugins.shadow)
 }
 
-group = "net.azisaba"
-version = "0.1.0-beta"
+group = "net.azisaba.rcitemdrop"
+version = System.getenv("VERSION") ?: "0.1.0-beta"
 
 repositories {
     mavenCentral()
