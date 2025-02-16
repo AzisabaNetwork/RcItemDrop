@@ -4,3 +4,4 @@ main: net.azisaba.rcitemdrop.RcItemDrop
 api-version: '1.21'
 authors: [ sysnote8 ]
 description: Item drop plugin for rcpve
+depend: [ MythicMobs ]

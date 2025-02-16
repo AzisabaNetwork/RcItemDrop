@@ -21,6 +21,9 @@ repositories {
     maven("https://repo.azisaba.net/repository/maven-releases/") {
         name = "azisaba-repo"
     }
+    maven("https://mvn.lumine.io/repository/maven-public/") {
+        name = "lumine-repo"
+    }
 }
 
 dependencies {
@@ -34,6 +37,7 @@ dependencies {
 
     // plugin
     compileOnly(libs.rcitemlogging)
+    compileOnly(libs.mythic.dist)
 }
 
 val targetJavaVersion = 21
