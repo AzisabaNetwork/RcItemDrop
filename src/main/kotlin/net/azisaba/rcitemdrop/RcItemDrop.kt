@@ -1,11 +1,14 @@
 package net.azisaba.rcitemdrop
 
+import co.aikar.commands.PaperCommandManager
 import com.charleskorn.kaml.Yaml
+import net.azisaba.rcitemdrop.command.RIDGetCommand
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
 class RcItemDrop : JavaPlugin() {
     lateinit var config: RIDConfig
+    lateinit var commandManager: PaperCommandManager
 
     override fun onEnable() {
         dataFolder.mkdirs()
@@ -18,6 +21,10 @@ class RcItemDrop : JavaPlugin() {
 
         // get fresh config
         loadConfig()
+
+        commandManager = PaperCommandManager(this)
+
+        commandManager.registerCommand(RIDGetCommand())
     }
 
     override fun onDisable() {
