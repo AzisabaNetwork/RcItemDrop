@@ -2,7 +2,7 @@ package net.azisaba.rcitemdrop
 
 import co.aikar.commands.PaperCommandManager
 import com.charleskorn.kaml.Yaml
-import net.azisaba.rcitemdrop.command.RIDGetCommand
+import net.azisaba.rcitemdrop.command.ItemDropCommand
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
@@ -24,7 +24,7 @@ class RcItemDrop : JavaPlugin() {
 
         commandManager = PaperCommandManager(this)
 
-        commandManager.registerCommand(RIDGetCommand())
+        commandManager.registerCommand(ItemDropCommand())
     }
 
     override fun onDisable() {

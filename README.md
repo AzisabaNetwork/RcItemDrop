@@ -1,4 +1,4 @@
 # RcItemDrop for rcpve
 
 ## コマンド
-- `/ridget <mmitemid> <require_itemid>`
+- `/itemdrop <playerid> <mmitemid> <require_itemid>`
