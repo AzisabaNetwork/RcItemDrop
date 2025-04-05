@@ -20,8 +20,14 @@ class ItemDropCommand : BaseCommand() {
         sender: CommandSender,
         playerId: String,
         mmItemId: String,
+        @Default("1") amount: Int,
         @Default("#none") requireItemId: String,
     ) {
+        if (amount < 1) {
+            sender.sendMessage(failComponent("Amount must be 1 or more. now: $amount"))
+            return
+        }
+
         val player = sender.server.getPlayer(playerId) ?: error("No player matched to $playerId")
         val mm = MythicBukkit.inst()
         if (requireItemId != "#none") {
@@ -30,13 +36,14 @@ class ItemDropCommand : BaseCommand() {
                 return
             }
         }
-        val stack = mm.itemManager.getItemStack(mmItemId) ?: error("Failed to get item stack. (itemId:$mmItemId)")
-        player.inventory.addItem(stack)
+        val stack = mm.itemManager.getItemStack(mmItemId, amount) ?: error("Failed to get item stack. (itemId:$mmItemId)")
+        val remainItems = player.inventory.addItem(stack)
+        // TODO: store this remained items to stash
         RcItemLogging.getApi().put(
             "rcitemdrop_give",
-            "#system",
+            "#server",
             player.name,
-            "${stack.displayName().toPlainTextStr()} +1 from system",
+            "${stack.displayName().toPlainTextStr()} x ${stack.amount} from system",
             player.uniqueId,
         )
     }
