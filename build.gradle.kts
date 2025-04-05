@@ -34,10 +34,14 @@ dependencies {
     // library
     implementation(libs.acf.paper)
     implementation(libs.kaml)
+    implementation(libs.bundles.exposed)
+    implementation(libs.mariadb.java.client)
+    implementation(libs.hikaricp)
 
     // plugin
     compileOnly(libs.rcitemlogging)
     compileOnly(libs.mythic.dist)
+    compileOnly(libs.visualkit)
 }
 
 val targetJavaVersion = 21
@@ -58,7 +62,6 @@ tasks.processResources {
     }
 }
 
-// === For ACF-Paper===
 tasks.compileJava {
     options.compilerArgs.add("-parameters")
 }
@@ -68,7 +71,6 @@ tasks.compileKotlin {
 }
 
 tasks.shadowJar {
-    relocate("co.aikar.commands", "net.azisaba.rcitemdrop.shadow.acf")
-    relocate("co.aikar.locales", "net.azisaba.rcitemdrop.shadow.locales")
+    enableRelocation = true
+    relocationPrefix = "net.azisaba.rcitemdrop.shadow"
 }
-// ====================
