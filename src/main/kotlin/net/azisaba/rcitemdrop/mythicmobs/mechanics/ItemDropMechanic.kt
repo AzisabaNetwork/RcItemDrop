@@ -7,6 +7,7 @@ import io.lumine.mythic.api.skills.SkillMetadata
 import io.lumine.mythic.api.skills.SkillResult
 import net.azisaba.rcitemdrop.extension.getInt
 import net.azisaba.rcitemdrop.extension.getStr
+import net.azisaba.rcitemdrop.extension.toPlainTextStr
 import net.azisaba.rcitemdrop.mythicmobs.MythicApi
 import net.azisaba.rcitemdrop.util.addItemLog
 import org.bukkit.entity.Player
@@ -44,7 +45,7 @@ class ItemDropMechanic(
             LOG_EVENT_TYPE,
             "#server",
             player.name,
-            "Add ${stack.type} x ${stack.amount} to ${player.name}",
+            "Add ${stack.displayName().toPlainTextStr()} x ${stack.amount} to ${player.name}",
             player.uniqueId,
         )
         return SkillResult.SUCCESS

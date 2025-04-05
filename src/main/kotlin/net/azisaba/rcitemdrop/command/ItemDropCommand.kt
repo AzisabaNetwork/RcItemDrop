@@ -6,6 +6,7 @@ import co.aikar.commands.annotation.CommandCompletion
 import co.aikar.commands.annotation.CommandPermission
 import co.aikar.commands.annotation.Default
 import io.lumine.mythic.bukkit.MythicBukkit
+import net.azisaba.rcitemdrop.extension.toPlainTextStr
 import net.azisaba.rcitemdrop.util.failComponent
 import net.azisaba.rcitemlogging.RcItemLogging
 import org.bukkit.command.CommandSender
@@ -35,7 +36,7 @@ class ItemDropCommand : BaseCommand() {
             "rcitemdrop_give",
             "#system",
             player.name,
-            "${stack.displayName()} +1 from system",
+            "${stack.displayName().toPlainTextStr()} +1 from system",
             player.uniqueId,
         )
     }
