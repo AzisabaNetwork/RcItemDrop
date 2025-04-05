@@ -3,6 +3,8 @@ package net.azisaba.rcitemdrop
 import co.aikar.commands.PaperCommandManager
 import com.charleskorn.kaml.Yaml
 import net.azisaba.rcitemdrop.command.ItemDropCommand
+import net.azisaba.rcitemdrop.extension.registerEvents
+import net.azisaba.rcitemdrop.mythicmobs.listener.MechanicRegisterListener
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
 
@@ -25,6 +27,11 @@ class RcItemDrop : JavaPlugin() {
         commandManager = PaperCommandManager(this)
 
         commandManager.registerCommand(ItemDropCommand())
+
+        // register events
+        registerEvents(
+            MechanicRegisterListener(),
+        )
     }
 
     override fun onDisable() {
